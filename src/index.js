@@ -1,10 +1,11 @@
 import './styles.css';
 import { getRandomInt, ready } from './utils';
 
-let secretNumber;
+let secretNumber,
+     squares;
 
 function doIt() {
-    const squares = document.querySelectorAll('.square');
+     squares = document.querySelectorAll('.square');
     let squareNumber = 1;
     squares.forEach(function (square) {
         square.addEventListener('click', handleClick);//adds the  onClick event handler to each square
@@ -19,7 +20,20 @@ function doIt() {
 
 function handleClick(evt){
     if(parseInt(this.dataset.number) === secretNumber) {
-        console.log('You Win!');
+        this.classList.add('winner');
+        const currentSquare = this;
+        squares.forEach(function (square) {
+            square.removeEventListener('click', handleClick);
+
+            if(square !== currentSquare){
+                square.classList.add('loser');
+            }
+    
+})
+        
+        
+    }else {
+        this.classList.add('loser');
     }
     
 }
