@@ -18,7 +18,7 @@ module.exports = (config) => {
 
         reporters: ['dots'],
 
-        browsers: ['ChromeHeadless'], // or just 'Chrome', 'ie', 'firefox', etc.
+        browsers: ['Chrome']// or just 'Chrome', 'ie', 'firefox', etc.
    
         
     });
